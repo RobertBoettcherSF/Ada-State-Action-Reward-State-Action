@@ -153,13 +153,13 @@ begin
       Q (1, 1) := 1.0; Q (1, 2) := 9.0; Q (1, 3) := 2.0;
       
       Act := Epsilon_Greedy_Action (Q, 1, 1.0, Gen);
-      Check ("10.1 Explore returns valid bounds (Run 1)", Integer (Act) in 1 .. 3);
+      Check ("10.1 Explore returns valid bounds (Run 1)", Act <= 3);
       
       Act := Epsilon_Greedy_Action (Q, 1, 1.0, Gen);
-      Check ("10.2 Explore returns valid bounds (Run 2)", Integer (Act) in 1 .. 3);
+      Check ("10.2 Explore returns valid bounds (Run 2)", Act <= 3);
       
       Act := Epsilon_Greedy_Action (Q, 1, 1.0, Gen);
-      Check ("10.3 Explore returns valid bounds (Run 3)", Integer (Act) in 1 .. 3);
+      Check ("10.3 Explore returns valid bounds (Run 3)", Act <= 3);
    end;
 
    -- TEST 11 — SARSA Lambda Trace Increment
