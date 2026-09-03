@@ -208,7 +208,7 @@ begin
 
       Failed := False;
       begin
-         Update_Expected (Q, 1, 1, 0.0, 0, 0.1, 0.9, 0.1);
+         Update_Expected (Q, 1, 1, 0.0, 3, 0.1, 0.9, 0.1);
       exception
          when State_Out_Of_Bounds => Failed := True;
       end;
