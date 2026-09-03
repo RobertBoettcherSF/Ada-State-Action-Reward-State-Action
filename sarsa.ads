@@ -1,7 +1,6 @@
 with Ada.Numerics.Float_Random;
 
 package Sarsa is
-   pragma Preelaborate;
 
    -- Domain-specific types for strong typing
    type State_Index is new Positive;
