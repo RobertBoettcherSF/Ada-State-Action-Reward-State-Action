@@ -4,9 +4,9 @@ package body Sarsa is
    -- Initialize_Q_Table --
    ------------------------
    function Initialize_Q_Table (States, Actions : Positive) return Q_Table is
-      Result : Q_Table (State_Index (1) .. State_Index (States),
-                        Action_Index (1) .. Action_Index (Actions)) :=
-        (others => (others => 0.0));
+      Result : constant Q_Table (State_Index (1) .. State_Index (States),
+                                 Action_Index (1) .. Action_Index (Actions)) :=
+        [others => [others => 0.0]];
    begin
       return Result;
    end Initialize_Q_Table;
@@ -15,9 +15,9 @@ package body Sarsa is
    -- Initialize_Trace_Table --
    ----------------------------
    function Initialize_Trace_Table (States, Actions : Positive) return Trace_Table is
-      Result : Trace_Table (State_Index (1) .. State_Index (States),
-                            Action_Index (1) .. Action_Index (Actions)) :=
-        (others => (others => 0.0));
+      Result : constant Trace_Table (State_Index (1) .. State_Index (States),
+                                     Action_Index (1) .. Action_Index (Actions)) :=
+        [others => [others => 0.0]];
    begin
       return Result;
    end Initialize_Trace_Table;
