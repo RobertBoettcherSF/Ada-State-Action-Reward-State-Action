@@ -149,18 +149,17 @@ begin
    declare
       Q : Q_Table := Initialize_Q_Table (1, 3);
       Act : Action_Index;
-      Valid_Range : Boolean := True;
    begin
       Q (1, 1) := 1.0; Q (1, 2) := 9.0; Q (1, 3) := 2.0;
+      
       Act := Epsilon_Greedy_Action (Q, 1, 1.0, Gen);
-      Valid_Range := Valid_Range and (Act >= 1 and Act <= 3);
-      Check ("10.1 Explore returns valid bounds (Run 1)", Valid_Range);
+      Check ("10.1 Explore returns valid bounds (Run 1)", Integer (Act) in 1 .. 3);
+      
       Act := Epsilon_Greedy_Action (Q, 1, 1.0, Gen);
-      Valid_Range := Valid_Range and (Act >= 1 and Act <= 3);
-      Check ("10.2 Explore returns valid bounds (Run 2)", Valid_Range);
+      Check ("10.2 Explore returns valid bounds (Run 2)", Integer (Act) in 1 .. 3);
+      
       Act := Epsilon_Greedy_Action (Q, 1, 1.0, Gen);
-      Valid_Range := Valid_Range and (Act >= 1 and Act <= 3);
-      Check ("10.3 Explore returns valid bounds (Run 3)", Valid_Range);
+      Check ("10.3 Explore returns valid bounds (Run 3)", Integer (Act) in 1 .. 3);
    end;
 
    -- TEST 11 — SARSA Lambda Trace Increment
@@ -218,6 +217,7 @@ begin
       begin
          declare
             A : Action_Index := Best_Action (Q, 3);
+            pragma Unreferenced (A);
          begin
             null;
          end;
